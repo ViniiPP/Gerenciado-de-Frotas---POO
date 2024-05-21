@@ -19,6 +19,9 @@ public class Main {
     // ADD CARRO
     private static void adicionarVeiculo(){
         System.out.println("\n=== Adicionar Veículo ===");
+        System.out.println("Digite o tipo do seu veículo (Carro/Moto...):");
+        String tipo = scanner.nextLine();
+
         System.out.println("Digite a marca do veículo:");
         String marca = scanner.nextLine();
 
@@ -29,11 +32,15 @@ public class Main {
         int ano = scanner.nextInt();
         scanner.nextLine();
 
+        System.out.println("Digite o número de portas:");
+        int numeroPortas = scanner.nextInt();
+        scanner.nextLine();
+
         System.out.println("Digite a placa do veículo:");
         String placa = scanner.nextLine();
         
         // add veiculo
-        Carro novCarro = new Carro(marca, modelo, ano, placa);
+        Carro novCarro = new Carro(tipo, marca, modelo, ano, numeroPortas, placa);
         // Verificação
         try {
             utilidades.adicionarVeiculo(novCarro);

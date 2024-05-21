@@ -14,19 +14,24 @@ public class Utilidades {
 
     // ADICIONAR VEICULO
     public void adicionarVeiculo(Carro carro) throws Exception {
+        if (carro.getTipo() == null || carro.getTipo().isEmpty()){
+            throw new Exception("O tipo do veículo não pode ser nulo.");
+        }
         if (carro.getMarca() == null || carro.getMarca().isEmpty()) {
-            throw new Exception("A marca do veículo é obrigatório.");
+            throw new Exception("A marca do veículo não pode ser nulo.");
         }
         if(carro.getModelo() == null || carro.getModelo().isEmpty()) { 
-            throw new Exception("O modelo do veículo é obrigatório");
+            throw new Exception("O modelo do veículo não pode ser nulo.");
         }
         if(carro.getAno() < 0) { 
-            throw new Exception("O ano deve ser depois de 1886.");
+            throw new Exception("O ano deve ser maior que 0.");
+        }
+        if(carro.getNumeroPortas() < 0 && carro.getTipo().equalsIgnoreCase("carro") ) {
+            throw new Exception("O carro deve ter um número de portas maior que 0.");
         }
         if(carro.getPlaca() == null || carro.getPlaca().isEmpty()) { 
             throw new Exception("A placa é obrigatória.");
         }
-
         for (Carro L : lista){
             if(L.getPlaca().equalsIgnoreCase(carro.getPlaca())) {
                 throw new Exception("Já existe um carro com essa placa cadastrado.");
