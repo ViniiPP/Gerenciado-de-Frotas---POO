@@ -1,8 +1,8 @@
 import java.util.Scanner;
 
 public class Main {
-    private static Utilidades utilidades = new Utilidades();
-    private static Scanner scanner = new Scanner(System.in);
+    private static final Utilidades utilidades = new Utilidades();
+    private static final Scanner scanner = new Scanner(System.in);
 
 
     // MENU
@@ -35,15 +35,13 @@ public class Main {
         // add veiculo
         Carro novCarro = new Carro(marca, modelo, ano, placa);
         // Verificação
-        if (novCarro != null){
-            try{
-                utilidades.adicionarVeiculo(novCarro);
-                System.out.println();
-                System.out.println("Veículo adicionado com sucesso!");
-            } catch (Exception e){
-                System.out.println();
-                System.out.println("Erro ao adicionar veículo: " + e.getMessage());
-            }
+        try {
+            utilidades.adicionarVeiculo(novCarro);
+            System.out.println();
+            System.out.println("Veículo adicionado com sucesso!");
+        } catch (Exception e) {
+            System.out.println();
+            System.out.println("Erro ao adicionar veículo: " + e.getMessage());
         }
     }
 

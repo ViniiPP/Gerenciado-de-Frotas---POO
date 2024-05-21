@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Utilidades {
-    private List<Carro> lista;
+    private final List<Carro> lista;
 
     public Utilidades() {
         lista = new ArrayList<>();
