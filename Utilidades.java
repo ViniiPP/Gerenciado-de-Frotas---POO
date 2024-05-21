@@ -23,7 +23,7 @@ public class Utilidades {
         if(carro.getModelo() == null || carro.getModelo().isEmpty()) { 
             throw new Exception("O modelo do veículo não pode ser nulo.");
         }
-        if(carro.getAno() < 0) { 
+        if(carro.getAno() < 1885) { 
             throw new Exception("O ano deve ser maior que 0.");
         }
         if(carro.getNumeroPortas() < 0 && carro.getTipo().equalsIgnoreCase("carro") ) {
