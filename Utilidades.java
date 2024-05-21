@@ -20,8 +20,8 @@ public class Utilidades {
         if(carro.getModelo() == null || carro.getModelo().isEmpty()) { 
             throw new Exception("O modelo do veículo é obrigatório");
         }
-        if(carro.getAno() < 1886) { 
-            throw new Exception("O ano deve ser válido.");
+        if(carro.getAno() < 0) { 
+            throw new Exception("O ano deve ser depois de 1886.");
         }
         if(carro.getPlaca() == null || carro.getPlaca().isEmpty()) { 
             throw new Exception("A placa é obrigatória.");
