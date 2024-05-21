@@ -12,7 +12,7 @@ public class Utilidades {
         return lista;
     }
 
-    // ADICIONAR
+    // ADICIONAR VEICULO
     public void adicionarVeiculo(Carro carro) throws Exception {
         if (carro.getMarca() == null || carro.getMarca().isEmpty()) {
             throw new Exception("A marca do veículo é obrigatório.");
