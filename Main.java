@@ -7,13 +7,17 @@ public class Main {
 
     // MENU
     private static void exibirMenu(){
-        System.out.println("\n====== Menu ======");
-        System.out.println("Escolha uma opção:\n");
-        System.out.println("1 - Cadastrar um Veículo");
-        System.out.println("2 - Listar Veículos");
-        System.out.println("3 - Buscar Veículo pela placa");
-        System.out.println("4 - Remover Veículo");
-        System.out.println("0 - Sair\n");
+        System.out.println("""
+            \n
+            |=============== Menu ===============|
+            |        Escolha uma opção:          |
+            |  1 - Cadastrar um Veículo          |
+            |  2 - Listar Veículos               |
+            |  3 - Buscar Veículo pela placa     |
+            |  4 - Remover Veículo               |
+            |  0 - Sair                          |
+            |====================================|
+                \n""");
     }
 
     // ADD CARRO
