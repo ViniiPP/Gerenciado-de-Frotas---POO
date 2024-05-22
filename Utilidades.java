@@ -23,7 +23,7 @@ public class Utilidades {
         if(veiculo.getAno() < 1885) {
             throw new Exception("O ano deve ser maior que 0.");
         }
-        if (veiculo instanceof Carro && ((Carro) veiculo).getNumeroPortas() < 1) {
+        if (veiculo instanceof Carro && ((Carro) veiculo).getNumeroPortas() < 1) { //casting explícito - converte o objeto referenciado pela variável veiculo para o tipo Carro. instanceof - retorna verdadeiro se o objeto referenciado pela variável veiculo for uma instância de Carro.
             throw new Exception("O carro deve ter um número de portas maior que 0.");
         }
         if(veiculo.getPlaca() == null || veiculo.getPlaca().isEmpty()) {
