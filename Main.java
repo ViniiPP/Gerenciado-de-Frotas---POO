@@ -4,9 +4,7 @@ public class Main {
     private static final Utilidades utilidades = new Utilidades();
     private static final Scanner scanner = new Scanner(System.in);
 
-
-    // MENU
-    private static void exibirMenu(){
+    private static void exibirMenu() {
         System.out.println("""
             \n
             |=============== Menu ===============|
@@ -20,11 +18,19 @@ public class Main {
             \n""");
     }
 
-    // ADD CARRO
-    private static void adicionarVeiculo(){
+    private static void adicionarVeiculo() {
         System.out.println("\n=== Adicionar Veículo ===");
-        System.out.print("Digite o tipo do seu veículo (Carro/Moto...): ");
-        String tipo = scanner.nextLine();
+        System.out.println("Escolha o tipo de veículo:");
+        System.out.println("1 - Carro");
+        System.out.println("2 - Moto");
+        int tipoVeiculo = scanner.nextInt();
+        scanner.nextLine();
+        System.out.println();
+
+        if (tipoVeiculo != 1 && tipoVeiculo != 2) {
+            System.out.println("Erro ao selecionar opção: selecione 1 para Carro ou 2 para Moto.");
+            return;
+        }
 
         System.out.print("Digite a marca do veículo: ");
         String marca = scanner.nextLine();
@@ -36,18 +42,26 @@ public class Main {
         int ano = scanner.nextInt();
         scanner.nextLine();
 
-        System.out.print("Digite o número de portas: ");
-        int numeroPortas = scanner.nextInt();
-        scanner.nextLine();
-
         System.out.print("Digite a placa do veículo: ");
         String placa = scanner.nextLine();
-        
-        // add veiculo
-        Carro novCarro = new Carro(tipo, marca, modelo, ano, numeroPortas, placa);
-        // Verificação
+
+        Veiculo novoVeiculo = null;
+        switch (tipoVeiculo) {
+            case 1 -> {
+                System.out.print("Digite o número de portas: ");
+                int numeroPortas = scanner.nextInt();
+                scanner.nextLine();
+                novoVeiculo = new Carro(marca, modelo, ano, placa, numeroPortas);
+            }
+            case 2 -> novoVeiculo = new Moto(marca, modelo, ano, placa);
+            default -> {
+                System.out.println("Tipo de veículo inválido.");
+                return;
+            }
+        }
+
         try {
-            utilidades.adicionarVeiculo(novCarro);
+            utilidades.adicionarVeiculo(novoVeiculo);
             System.out.println();
             System.out.println("Veículo adicionado com sucesso!");
         } catch (Exception e) {
@@ -56,72 +70,60 @@ public class Main {
         }
     }
 
-
-    // DEL VEÍCULO
-    private static void removerVeiculo(){
+    private static void removerVeiculo() {
         System.out.println("\n=== Remover Veículo ===");
         System.out.print("Digite a placa do veículo que deseja remover: ");
         String placa = scanner.nextLine();
 
-        // Verificação
-        try{
-            Carro carroEncontrado = utilidades.buscarCarro(placa);
-            if (carroEncontrado != null){
-                utilidades.removerVeiculo(carroEncontrado);
+        try {
+            Veiculo veiculoEncontrado = utilidades.buscarCarro(placa);
+            if (veiculoEncontrado != null) {
+                utilidades.removerVeiculo(veiculoEncontrado);
+                System.out.println();
                 System.out.println("Veículo removido com sucesso!");
             } else {
                 System.out.println();
                 throw new Exception("Veículo com placa " + placa + " não foi encontrado.");
             }
-        } catch (Exception e){
+        } catch (Exception e) {
             System.out.println("Erro ao remover veículo: " + e.getMessage());
         }
     }
 
-    // BUSCAR VEÍCULO
-    private static void buscarCarro(){
+    private static void buscarCarro() {
         System.out.println("\n=== Buscar Veículo ===");
-        System.out.print("Digite a placa a do veículo a ser buscado: ");
+        System.out.print("Digite a placa do veículo a ser buscado: ");
         String placa = scanner.nextLine();
         System.out.println();
 
-        // Verificação
-        try{
-            Carro carroEncontrado = utilidades.buscarCarro(placa);
-            if(carroEncontrado != null){
-                System.out.println("Veículo encontrado: \n" + carroEncontrado);
-            } else{
+        try {
+            Veiculo veiculoEncontrado = utilidades.buscarCarro(placa);
+            if (veiculoEncontrado != null) {
+                System.out.println("Veículo encontrado: \n" + veiculoEncontrado);
+            } else {
                 throw new Exception("Veículo com placa " + placa + " não foi encontrado.");
             }
-        } catch (Exception e){
+        } catch (Exception e) {
             System.out.println("Erro ao buscar veículo: " + e.getMessage());
         }
     }
-    
+
     public static void main(String[] args) {
-        while(true) {
+        while (true) {
             exibirMenu();
             int opcao = scanner.nextInt();
             scanner.nextLine();
 
-            switch (opcao){
-                case 1:
-                    adicionarVeiculo();
-                    break;
-                case 2:
-                    utilidades.listaVeiculo();
-                    break;
-                case 3:
-                    buscarCarro();
-                    break;
-                case 4:
-                    removerVeiculo();
-                    break;
-                case 0:
+            switch (opcao) {
+                case 1 -> adicionarVeiculo();
+                case 2 -> utilidades.listaVeiculo();
+                case 3 -> buscarCarro();
+                case 4 -> removerVeiculo();
+                case 0 -> {
                     System.out.println("Encerrando o programa.");
                     return;
-                default:
-                    System.out.println("Opção inválida.");
+                }
+                default -> System.out.println("Opção inválida.");
             }
         }
     }
