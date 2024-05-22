@@ -4,6 +4,7 @@ public class Main {
     private static final Utilidades utilidades = new Utilidades();
     private static final Scanner scanner = new Scanner(System.in);
 
+    // MENU
     private static void exibirMenu() {
         System.out.println("""
             \n
@@ -18,6 +19,7 @@ public class Main {
             \n""");
     }
 
+    // ADD VEICULO
     private static void adicionarVeiculo() {
         System.out.println("\n=== Adicionar Veículo ===");
         System.out.println("Escolha o tipo de veículo:");
@@ -70,6 +72,7 @@ public class Main {
         }
     }
 
+    // REMOVER VEICULO
     private static void removerVeiculo() {
         System.out.println("\n=== Remover Veículo ===");
         System.out.print("Digite a placa do veículo que deseja remover: ");
@@ -90,6 +93,7 @@ public class Main {
         }
     }
 
+    // BUSCAR VEICULO
     private static void buscarCarro() {
         System.out.println("\n=== Buscar Veículo ===");
         System.out.print("Digite a placa do veículo a ser buscado: ");

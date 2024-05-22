@@ -37,7 +37,7 @@ public class Utilidades {
         lista.add(veiculo);
     }
 
-    // REMOVER
+    // REMOVER VEICULO
     public void removerVeiculo(Veiculo veiculo) {
         lista.remove(veiculo);
     }
@@ -55,7 +55,7 @@ public class Utilidades {
         }
     }
 
-    // BUSCAR
+    // BUSCAR VEICULO
     public Veiculo buscarCarro(String placa){
         for(Veiculo veiculo : lista){
             if(veiculo.getPlaca().equalsIgnoreCase(placa)){
