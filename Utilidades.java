@@ -26,7 +26,7 @@ public class Utilidades {
         if(carro.getAno() < 1885) { 
             throw new Exception("O ano deve ser maior que 0.");
         }
-        if(carro.getNumeroPortas() < 0 && carro.getTipo().equalsIgnoreCase("carro") ) {
+        if(carro.getNumeroPortas() < 1 && carro.getTipo().equalsIgnoreCase("carro") ) {
             throw new Exception("O carro deve ter um número de portas maior que 0.");
         }
         if(carro.getPlaca() == null || carro.getPlaca().isEmpty()) { 
