@@ -8,7 +8,7 @@ public class Main {
     // MENU
     private static void exibirMenu(){
         System.out.println("\n====== Menu ======");
-        System.out.print("Escolha uma opção:\n");
+        System.out.println("Escolha uma opção:\n");
         System.out.println("1 - Cadastrar um Veículo");
         System.out.println("2 - Listar Veículos");
         System.out.println("3 - Buscar Veículo pela placa");
@@ -19,24 +19,24 @@ public class Main {
     // ADD CARRO
     private static void adicionarVeiculo(){
         System.out.println("\n=== Adicionar Veículo ===");
-        System.out.println("Digite o tipo do seu veículo (Carro/Moto...):");
+        System.out.print("Digite o tipo do seu veículo (Carro/Moto...): ");
         String tipo = scanner.nextLine();
 
-        System.out.println("Digite a marca do veículo:");
+        System.out.print("Digite a marca do veículo: ");
         String marca = scanner.nextLine();
 
-        System.out.println("Digite o modelo do veículo:");
+        System.out.print("Digite o modelo do veículo: ");
         String modelo = scanner.nextLine();
 
-        System.out.println("Digite o ano do veículo:");
+        System.out.print("Digite o ano do veículo: ");
         int ano = scanner.nextInt();
         scanner.nextLine();
 
-        System.out.println("Digite o número de portas:");
+        System.out.print("Digite o número de portas: ");
         int numeroPortas = scanner.nextInt();
         scanner.nextLine();
 
-        System.out.println("Digite a placa do veículo:");
+        System.out.print("Digite a placa do veículo: ");
         String placa = scanner.nextLine();
         
         // add veiculo
@@ -56,7 +56,7 @@ public class Main {
     // DEL VEÍCULO
     private static void removerVeiculo(){
         System.out.println("\n=== Remover Veículo ===");
-        System.out.println("Digite a placa do veículo que deseja remover: ");
+        System.out.print("Digite a placa do veículo que deseja remover: ");
         String placa = scanner.nextLine();
 
         // Verificação
@@ -77,7 +77,7 @@ public class Main {
     // BUSCAR VEÍCULO
     private static void buscarCarro(){
         System.out.println("\n=== Buscar Veículo ===");
-        System.out.println("Digite a placa a do veículo a ser buscado: ");
+        System.out.print("Digite a placa a do veículo a ser buscado: ");
         String placa = scanner.nextLine();
         System.out.println();
 
