@@ -21,7 +21,7 @@ public class Utilidades {
             throw new Exception("O modelo do veículo não pode ser nulo.");
         }
         if(veiculo.getAno() < 1885) {
-            throw new Exception("O ano deve ser maior que 0.");
+            throw new Exception("O ano deve ser maior que 1885.");
         }
         if (veiculo instanceof Carro && ((Carro) veiculo).getNumeroPortas() < 1) { //casting explícito - converte o objeto referenciado pela variável veiculo para o tipo Carro. instanceof - retorna verdadeiro se o objeto referenciado pela variável veiculo for uma instância de Carro.
             throw new Exception("O carro deve ter um número de portas maior que 0.");
