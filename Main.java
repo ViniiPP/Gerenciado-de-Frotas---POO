@@ -17,7 +17,7 @@ public class Main {
             |  4 - Remover Veículo               |
             |  0 - Sair                          |
             |====================================|
-                \n""");
+            \n""");
     }
 
     // ADD CARRO
